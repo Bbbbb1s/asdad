@@ -1,1 +1,55 @@
-# asdad
+<body>
+<div class="container mt__60 mb__60"><div style="margin-top: 10px; margin-bottom: 20px;">
+
+<!--Tracking number input box.--> <input class="Form__Input" type="text" placeholder="Enter your number" id="YQNum" maxlength="50" style="width: 100%; height: 57px;"> <!--The button is used to call script method.--> <input class="Button" style="background: #000; border-radius: 0; width: 100%; height: 50px; margin-left: 0px; color: #fff;" type="button" value="TRACK" onclick="doTrack()"> <!--Container to display the tracking result.-->
+
+<div id="YQContainer"></div>
+
+<!--Script code can be put in the bottom of the page, wait until the page is loaded then execute.-->
+
+<script type="text/javascript" src="//www.17track.net/externalcall.js"></script>
+
+<script type="text/javascript">// <![CDATA[
+
+function doTrack() {
+
+     var num = document.getElementById("YQNum").value;
+
+     if(num===""){
+
+         alert("Enter your number.");
+
+         return;
+
+     }
+
+     YQV5.trackSingle({
+
+         //Required, Specify the container ID of the carrier content.
+
+         YQ_ContainerId:"YQContainer",
+
+         //Optional, specify tracking result height, max height 800px, default is 560px.
+
+         YQ_Height:560,
+
+         //Optional, select carrier, default to auto identify.
+
+         YQ_Fc:"0",
+
+         //Optional, specify UI language, default language is automatically detected based on the browser settings.
+
+         YQ_Lang:"en",
+
+         //Required, specify the number needed to be tracked.
+
+         YQ_Num:num
+
+     });
+
+ }
+
+// ]]></script>
+
+</div></div>
+</body>
